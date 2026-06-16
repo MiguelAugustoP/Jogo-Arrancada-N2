@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrancada 2D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="menu">
+    <h1>ARRANCADA 2D</h1>
+
+    <div class="distance-selector">
+        <h3>Escolha a distância</h3>
+
+        <select id="distanceSelect">
+            <option value="200">200 metros</option>
+            <option value="400" selected>400 metros</option>
+            <option value="800">800 metros</option>
+        </select>
+
+        <button id="startBtn">Iniciar Corrida</button>
+    </div>
+</div>
+
+<div id="hud">
+
+    <div class="player-info">
+        <h2>Player 1</h2>
+        <p>Velocidade: <span id="speed1">0</span> km/h</p>
+        <p>Distância restante: <span id="remaining1">0</span> m</p>
+        <p>Penalidades: <span id="penalty1">0</span></p>
+    </div>
+
+    <div class="race-info">
+        <h2 id="raceState">Aguardando</h2>
+        <p>Tempo: <span id="timer">0.00</span>s</p>
+        <p>Distância Total: <span id="totalDistance">400</span>m</p>
+    </div>
+
+    <div class="player-info">
+        <h2>Player 2</h2>
+        <p>Velocidade: <span id="speed2">0</span> km/h</p>
+        <p>Distância restante: <span id="remaining2">0</span> m</p>
+        <p>Penalidades: <span id="penalty2">0</span></p>
+    </div>
+
+</div>
+
+<div id="countdownOverlay">
+
+    <div id="trafficLight">
+
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+
+    </div>
+
+    <h1 id="countdownText">Preparar</h1>
+
+</div>
+
+<div id="camera">
+
+    <div id="track">
+
+        <div id="trackMarks"></div>
+
+        <div class="lane lane1">
+            <div id="car1" class="car">
+                <img src="imagens/Mcqueen-azul-png.png" alt="">
+            </div>
+        </div>
+
+        <div class="lane lane2">
+            <div id="car2" class="car">
+                <img src="imagens/Mcqueen_png.png" alt="">
+            </div>
+        </div>
+
+        <div id="finishLine">
+            <div class="finish-text">
+                CHEGADA
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="controls">
+
+    <button id="btnP1" class="touchBtn">
+        PLAYER 1
+    </button>
+
+    <button id="btnP2" class="touchBtn">
+        PLAYER 2
+    </button>
+
+</div>
+
+<div id="falseStartMessage">
+    LARGADA FALSA!
+</div>
+
+<div id="resultScreen">
+
+    <div class="result-box">
+
+        <h1>Resultado</h1>
+
+        <h2 id="winnerText"></h2>
+
+        <p>Tempo Final: <span id="finalTime"></span></p>
+
+        <p>Velocidade Máxima Player 1:
+            <span id="maxSpeed1"></span>
+        </p>
+
+        <p>Velocidade Máxima Player 2:
+            <span id="maxSpeed2"></span>
+        </p>
+
+        <p>Penalidades Player 1:
+            <span id="finalPenalty1"></span>
+        </p>
+
+        <p>Penalidades Player 2:
+            <span id="finalPenalty2"></span>
+        </p>
+
+        <button id="restartBtn">
+            Correr Novamente
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

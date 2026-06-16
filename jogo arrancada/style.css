@@ -1,0 +1,403 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    overflow:hidden;
+}
+
+/* MENU */
+
+#menu{
+    position:absolute;
+    inset:0;
+    background:#111;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    z-index:1000;
+}
+
+#menu h1{
+    font-size:3rem;
+}
+
+.distance-selector{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+}
+
+.distance-selector select{
+    padding:12px;
+    font-size:1.1rem;
+    border:none;
+    border-radius:8px;
+}
+
+.distance-selector button{
+    padding:14px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+/* HUD */
+
+#hud{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:10px;
+    background:rgba(0,0,0,.75);
+    display:flex;
+    justify-content:space-between;
+    z-index:500;
+}
+
+.player-info,
+.race-info{
+    text-align:center;
+}
+
+.player-info p,
+.race-info p{
+    margin-top:4px;
+}
+
+/* CAMERA */
+
+#camera{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+/* TRACK */
+
+#track{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:12000px;
+    background:#333;
+}
+
+/* ASFALTO */
+
+#track::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    repeating-linear-gradient(
+        90deg,
+        #303030 0px,
+        #303030 150px,
+        #383838 150px,
+        #383838 300px
+    );
+}
+
+/* MARCAÇÕES */
+
+#trackMarks{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 95px,
+        white 95px,
+        white 105px
+    );
+    opacity:.15;
+}
+
+/* PISTAS */
+
+.lane{
+    position:relative;
+    width:100%;
+    height:50%;
+    border-top:3px solid #555;
+    border-bottom:3px solid #555;
+}
+
+.lane1{
+    background:#444;
+}
+
+.lane2{
+    background:#4d4d4d;
+}
+
+/* LINHA CENTRAL */
+
+.lane1::after,
+.lane2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:50%;
+    width:100%;
+    height:6px;
+    transform:translateY(-50%);
+    background:
+    repeating-linear-gradient(
+        90deg,
+        white 0px,
+        white 40px,
+        transparent 40px,
+        transparent 90px
+    );
+}
+
+/* CARROS */
+
+.car{
+    position:absolute;
+    left:150px;
+    transition:transform .05s linear;
+    user-select:none;
+}
+
+.car img{
+    width:120px;
+    height: 120px;
+    height:auto;
+    display:block;
+    pointer-events:none;
+}
+
+#car1{
+    top:90px;
+}
+
+#car2{
+    top:90px;
+}
+
+/* CHEGADA */
+
+#finishLine{
+    position:absolute;
+    top:0;
+    width:80px;
+    height:100%;
+    opacity:0;
+    transition:opacity .5s;
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+        45deg,
+        white 0px,
+        white 20px,
+        black 20px,
+        black 40px
+    );
+}
+
+.finish-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(90deg);
+    font-size:2rem;
+    font-weight:bold;
+    color:red;
+    white-space:nowrap;
+}
+
+/* CONTROLES TOUCH */
+
+#controls{
+    position:fixed;
+    bottom:15px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 20px;
+    z-index:600;
+}
+
+.touchBtn{
+    width:180px;
+    height:90px;
+    border:none;
+    border-radius:15px;
+    font-size:1.2rem;
+    font-weight:bold;
+    opacity:.85;
+    touch-action:manipulation;
+}
+
+#btnP1{
+    background:#2196f3;
+    color:white;
+}
+
+#btnP2{
+    background:#f44336;
+    color:white;
+}
+
+/* SEMÁFORO */
+
+#countdownOverlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    z-index:900;
+}
+
+#countdownText{
+    font-size:4rem;
+}
+
+#trafficLight{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    background:#222;
+    padding:20px;
+    border-radius:20px;
+}
+
+.light{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    opacity:.2;
+}
+
+.red{
+    background:red;
+}
+
+.yellow{
+    background:yellow;
+}
+
+.green{
+    background:lime;
+}
+
+.active{
+    opacity:1;
+    box-shadow:0 0 30px currentColor;
+}
+
+/* LARGADA FALSA */
+
+#falseStartMessage{
+    position:fixed;
+    top:120px;
+    left:50%;
+    transform:translateX(-50%);
+    background:red;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:1.2rem;
+    display:none;
+    z-index:1000;
+}
+
+/* RESULTADO */
+
+#resultScreen{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.result-box{
+    background:#222;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:min(90%,500px);
+}
+
+.result-box h1{
+    margin-bottom:20px;
+}
+
+.result-box p{
+    margin:12px 0;
+}
+
+#restartBtn{
+    margin-top:20px;
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width:768px){
+
+    #hud{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .car{
+        font-size:3rem;
+    }
+
+    .touchBtn{
+        width:140px;
+        height:80px;
+        font-size:1rem;
+    }
+
+    #countdownText{
+        font-size:2.5rem;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .touchBtn{
+        width:120px;
+        height:70px;
+        font-size:.9rem;
+    }
+
+    .car{
+        font-size:2.5rem;
+    }
+
+}
