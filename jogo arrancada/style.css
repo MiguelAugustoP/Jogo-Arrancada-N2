@@ -6,7 +6,7 @@
 }
 
 body{
-    background:#111;
+    background:#000;
     color:white;
     overflow:hidden;
 }
@@ -16,7 +16,7 @@ body{
 #menu{
     position:absolute;
     inset:0;
-    background:#111;
+    background:#000;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -52,29 +52,6 @@ body{
     font-weight:bold;
 }
 
-/* HUD */
-
-#hud{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:10px;
-    background:rgba(0,0,0,.75);
-    display:flex;
-    justify-content:space-between;
-    z-index:500;
-}
-
-.player-info,
-.race-info{
-    text-align:center;
-}
-
-.player-info p,
-.race-info p{
-    margin-top:4px;
-}
 
 /* CAMERA */
 
@@ -93,7 +70,7 @@ body{
     left:0;
     height:100%;
     width:12000px;
-    background:#333;
+    background:#000;
 }
 
 /* ASFALTO */
@@ -105,10 +82,10 @@ body{
     background:
     repeating-linear-gradient(
         90deg,
-        #303030 0px,
-        #303030 150px,
-        #383838 150px,
-        #383838 300px
+        #000 0px,
+        #000 150px,
+        #000 150px,
+        #000 300px
     );
 }
 
@@ -123,7 +100,7 @@ body{
         90deg,
         transparent 0px,
         transparent 95px,
-        white 95px,
+        rgb(255, 255, 255) 95px,
         white 105px
     );
     opacity:.15;
@@ -140,11 +117,11 @@ body{
 }
 
 .lane1{
-    background:#444;
+    background:#000;
 }
 
 .lane2{
-    background:#4d4d4d;
+    background:#000;
 }
 
 /* LINHA CENTRAL */
@@ -161,8 +138,8 @@ body{
     background:
     repeating-linear-gradient(
         90deg,
-        white 0px,
-        white 40px,
+        yellow 0px,
+        yellow 40px,
         transparent 40px,
         transparent 90px
     );
@@ -309,22 +286,6 @@ body{
     box-shadow:0 0 30px currentColor;
 }
 
-/* LARGADA FALSA */
-
-#falseStartMessage{
-    position:fixed;
-    top:120px;
-    left:50%;
-    transform:translateX(-50%);
-    background:red;
-    color:white;
-    padding:15px 25px;
-    border-radius:10px;
-    font-size:1.2rem;
-    display:none;
-    z-index:1000;
-}
-
 /* RESULTADO */
 
 #resultScreen{
@@ -363,19 +324,17 @@ body{
     font-weight:bold;
 }
 
-/* RESPONSIVIDADE */
+#menuBtn{
+    margin-top:20px;
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:bold;
+}
 
 @media(max-width:768px){
-
-    #hud{
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .car{
-        font-size:3rem;
-    }
-
     .touchBtn{
         width:140px;
         height:80px;
@@ -389,15 +348,9 @@ body{
 }
 
 @media(max-width:500px){
-
     .touchBtn{
         width:120px;
         height:70px;
         font-size:.9rem;
     }
-
-    .car{
-        font-size:2.5rem;
-    }
-
 }
