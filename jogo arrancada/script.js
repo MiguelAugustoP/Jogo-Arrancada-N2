@@ -79,8 +79,8 @@ function wait(ms) {
 function accelerate(player) {
     if (!raceStarted) return;
     player.speed += 0.9;
-    if (player.speed > 30) {
-        player.speed = 30;
+    if (player.speed > 80) {
+        player.speed = 80;
     }
 }
 
