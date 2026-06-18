@@ -9,7 +9,7 @@
 <body>
 
 <div id="menu">
-    <h1>ARRANCADA 2D</h1>
+    <h1>ARRANCADA</h1>
 
     <div class="distance-selector">
         <h3>Escolha a distância</h3>
@@ -21,31 +21,10 @@
         </select>
 
         <button id="startBtn">Iniciar Corrida</button>
+        <h3>Controles Para o desktop</h3>
+        <p>Player 1: A para acelerar</p>
+        <p>Player 2: L para acelerar</p>
     </div>
-</div>
-
-<div id="hud">
-
-    <div class="player-info">
-        <h2>Player 1</h2>
-        <p>Velocidade: <span id="speed1">0</span> km/h</p>
-        <p>Distância restante: <span id="remaining1">0</span> m</p>
-        <p>Penalidades: <span id="penalty1">0</span></p>
-    </div>
-
-    <div class="race-info">
-        <h2 id="raceState">Aguardando</h2>
-        <p>Tempo: <span id="timer">0.00</span>s</p>
-        <p>Distância Total: <span id="totalDistance">400</span>m</p>
-    </div>
-
-    <div class="player-info">
-        <h2>Player 2</h2>
-        <p>Velocidade: <span id="speed2">0</span> km/h</p>
-        <p>Distância restante: <span id="remaining2">0</span> m</p>
-        <p>Penalidades: <span id="penalty2">0</span></p>
-    </div>
-
 </div>
 
 <div id="countdownOverlay">
@@ -102,10 +81,6 @@
 
 </div>
 
-<div id="falseStartMessage">
-    LARGADA FALSA!
-</div>
-
 <div id="resultScreen">
 
     <div class="result-box">
@@ -124,16 +99,12 @@
             <span id="maxSpeed2"></span>
         </p>
 
-        <p>Penalidades Player 1:
-            <span id="finalPenalty1"></span>
-        </p>
-
-        <p>Penalidades Player 2:
-            <span id="finalPenalty2"></span>
-        </p>
-
         <button id="restartBtn">
             Correr Novamente
+        </button>
+
+        <button id="menuBtn">
+            Voltar ao Menu
         </button>
 
     </div>
